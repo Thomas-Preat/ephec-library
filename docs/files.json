@@ -1,24 +1,28 @@
 {
-  "sensors": [
-    {
-      "name": "MAXSONAR.py",
-      "path": "code/sensors/MAXSONAR.py"
-    },
-    {
-      "name": "motion_sensor.py",
-      "path": "code/sensors/motion_sensor.py"
-    }
-  ],
   "actuators": [
     {
       "name": "servo.py",
-      "path": "code/actuators/servo.py"
+      "path": "code/actuators/servo.py",
+      "descriptionPath": "descriptions/actuators/servo.md"
     }
   ],
   "input": [
     {
       "name": "JSTK.py",
-      "path": "code/input/JSTK.py"
+      "path": "code/input/JSTK.py",
+      "descriptionPath": "descriptions/input/JSTK.md"
+    }
+  ],
+  "sensors": [
+    {
+      "name": "MAXSONAR.py",
+      "path": "code/sensors/MAXSONAR.py",
+      "descriptionPath": "descriptions/sensors/MAXSONAR.md"
+    },
+    {
+      "name": "motion_sensor.py",
+      "path": "code/sensors/motion_sensor.py",
+      "descriptionPath": "descriptions/sensors/motion_sensor.md"
     }
   ]
 }

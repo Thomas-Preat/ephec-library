@@ -17,9 +17,15 @@
 
 <div id="main">
   <h1>Welcome</h1>
-  <p class="intro">Select a file from the left to view its source.</p>
+  <p class="intro">Select a file from the left to view its summary and source.</p>
   <p id="code-meta">No file selected</p>
-  <pre id="code"></pre>
+  <div id="description" class="markdown">
+    <p>Select a module from the sidebar to load its documentation.</p>
+  </div>
+  <details id="code-panel">
+    <summary>Source code</summary>
+    <pre id="code"></pre>
+  </details>
 </div>
 
 <script src="script.js"></script>

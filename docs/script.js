@@ -1,3 +1,107 @@
+function escapeHtml(value) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function renderInlineMarkdown(text) {
+  return escapeHtml(text)
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
+
+function renderMarkdown(markdown) {
+  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+  const html = [];
+  let inList = false;
+  let inCodeBlock = false;
+  let codeBuffer = [];
+  let paragraphBuffer = [];
+
+  function flushParagraph() {
+    if (!paragraphBuffer.length) {
+      return;
+    }
+
+    html.push(`<p>${renderInlineMarkdown(paragraphBuffer.join(" "))}</p>`);
+    paragraphBuffer = [];
+  }
+
+  function closeList() {
+    if (!inList) {
+      return;
+    }
+
+    html.push("</ul>");
+    inList = false;
+  }
+
+  for (const rawLine of lines) {
+    const line = rawLine.trimEnd();
+
+    if (line.startsWith("```") || line.startsWith("~~~")) {
+      flushParagraph();
+      closeList();
+
+      if (inCodeBlock) {
+        html.push(`<pre><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`);
+        codeBuffer = [];
+        inCodeBlock = false;
+      } else {
+        inCodeBlock = true;
+      }
+
+      continue;
+    }
+
+    if (inCodeBlock) {
+      codeBuffer.push(rawLine);
+      continue;
+    }
+
+    if (!line) {
+      flushParagraph();
+      closeList();
+      continue;
+    }
+
+    const headingMatch = line.match(/^(#{1,3})\s+(.+)$/);
+    if (headingMatch) {
+      flushParagraph();
+      closeList();
+      const level = headingMatch[1].length;
+      html.push(`<h${level}>${renderInlineMarkdown(headingMatch[2])}</h${level}>`);
+      continue;
+    }
+
+    const listMatch = line.match(/^[-*]\s+(.+)$/);
+    if (listMatch) {
+      flushParagraph();
+      if (!inList) {
+        html.push("<ul>");
+        inList = true;
+      }
+      html.push(`<li>${renderInlineMarkdown(listMatch[1])}</li>`);
+      continue;
+    }
+
+    paragraphBuffer.push(line);
+  }
+
+  flushParagraph();
+  closeList();
+
+  if (inCodeBlock) {
+    html.push(`<pre><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`);
+  }
+
+  return html.join("");
+}
+
 async function loadCategories() {
   const res = await fetch("files.json");
   const data = await res.json();
@@ -5,6 +109,8 @@ async function loadCategories() {
   const categoriesDiv = document.getElementById("categories");
   const codeEl = document.getElementById("code");
   const codeMetaEl = document.getElementById("code-meta");
+  const descriptionEl = document.getElementById("description");
+  const codePanelEl = document.getElementById("code-panel");
   const pageTitleEl = document.querySelector("#main h1");
   let activeFileEl = null;
 
@@ -41,8 +147,19 @@ async function loadCategories() {
       fileEl.textContent = file.name;
 
       fileEl.onclick = async () => {
-        const fileRes = await fetch(file.path);
-        const code = await fileRes.text();
+        const requests = [fetch(file.path)];
+
+        if (file.descriptionPath) {
+          requests.push(fetch(file.descriptionPath));
+        }
+
+        const responses = await Promise.all(requests);
+        const code = await responses[0].text();
+        let description = "# Summary unavailable\n\nNo markdown documentation was found for this module yet.";
+
+        if (responses[1] && responses[1].ok) {
+          description = await responses[1].text();
+        }
 
         if (activeFileEl) {
           activeFileEl.classList.remove("active");
@@ -53,6 +170,8 @@ async function loadCategories() {
 
         codeEl.textContent = code;
         codeMetaEl.textContent = file.path;
+        descriptionEl.innerHTML = renderMarkdown(description);
+        codePanelEl.open = false;
         pageTitleEl.textContent = file.name;
       };
 

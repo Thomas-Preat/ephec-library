@@ -167,6 +167,83 @@ body {
   letter-spacing: 0.01em;
 }
 
+.markdown {
+  padding: 18px 18px 8px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(31, 40, 56, 0.08);
+}
+
+.markdown > :first-child {
+  margin-top: 0;
+}
+
+.markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  margin: 1.2em 0 0.45em;
+  color: var(--accent-strong);
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol {
+  margin: 0 0 1em;
+  line-height: 1.65;
+}
+
+.markdown ul,
+.markdown ol {
+  padding-left: 1.3rem;
+}
+
+.markdown li {
+  margin-bottom: 0.4em;
+}
+
+.markdown code {
+  padding: 0.14rem 0.34rem;
+  border-radius: 6px;
+  background: rgba(15, 23, 32, 0.08);
+  font-size: 0.92em;
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
+
+.markdown pre {
+  margin: 0 0 1rem;
+}
+
+#code-panel {
+  border-radius: 14px;
+  background: rgba(13, 22, 31, 0.94);
+  border: 1px solid rgba(214, 255, 224, 0.12);
+  overflow: hidden;
+}
+
+#code-panel summary {
+  padding: 14px 16px;
+  color: #eefef2;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+#code-panel summary:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+#code-panel pre {
+  border: 0;
+  border-top: 1px solid rgba(214, 255, 224, 0.12);
+  border-radius: 0;
+}
+
 pre {
   margin: 0;
   background: var(--code-bg);
