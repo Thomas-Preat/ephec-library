@@ -108,8 +108,11 @@ async function loadCategories() {
 
   const categoriesDiv = document.getElementById("categories");
   const codeEl = document.getElementById("code");
-  const codeMetaEl = document.getElementById("code-meta");
+  const libraryMetaEl = document.getElementById("library-meta");
   const descriptionEl = document.getElementById("description");
+  const exampleSectionEl = document.getElementById("example-section");
+  const exampleCodeEl = document.getElementById("example-code");
+  const exampleMetaEl = document.getElementById("example-meta");
   const codePanelEl = document.getElementById("code-panel");
   const pageTitleEl = document.querySelector("#main h1");
   let activeFileEl = null;
@@ -151,14 +154,29 @@ async function loadCategories() {
 
         if (file.descriptionPath) {
           requests.push(fetch(file.descriptionPath));
+        } else {
+          requests.push(null);
         }
 
-        const responses = await Promise.all(requests);
+        if (file.examplePath) {
+          requests.push(fetch(file.examplePath));
+        }
+
+        const responses = await Promise.all(requests.filter(Boolean));
         const code = await responses[0].text();
         let description = "# Summary unavailable\n\nNo markdown documentation was found for this module yet.";
+        let exampleCode = "";
+        let responseIndex = 1;
 
-        if (responses[1] && responses[1].ok) {
-          description = await responses[1].text();
+        if (file.descriptionPath) {
+          if (responses[responseIndex] && responses[responseIndex].ok) {
+            description = await responses[responseIndex].text();
+          }
+          responseIndex += 1;
+        }
+
+        if (file.examplePath && responses[responseIndex] && responses[responseIndex].ok) {
+          exampleCode = await responses[responseIndex].text();
         }
 
         if (activeFileEl) {
@@ -169,8 +187,17 @@ async function loadCategories() {
         activeFileEl = fileEl;
 
         codeEl.textContent = code;
-        codeMetaEl.textContent = file.path;
+        libraryMetaEl.textContent = file.path;
         descriptionEl.innerHTML = renderMarkdown(description);
+        if (exampleCode) {
+          exampleCodeEl.textContent = exampleCode;
+          exampleMetaEl.textContent = file.examplePath;
+          exampleSectionEl.hidden = false;
+        } else {
+          exampleCodeEl.textContent = "";
+          exampleMetaEl.textContent = "";
+          exampleSectionEl.hidden = true;
+        }
         codePanelEl.open = false;
         pageTitleEl.textContent = file.name;
       };

@@ -18,12 +18,19 @@
 <div id="main">
   <h1>Welcome</h1>
   <p class="intro">Select a file from the left to view its summary and source.</p>
-  <p id="code-meta">No file selected</p>
+  <p id="library-meta">No file selected</p>
   <div id="description" class="markdown">
     <p>Select a module from the sidebar to load its documentation.</p>
   </div>
+  <section id="example-section" hidden>
+    <div class="section-header">
+      <h2>Example</h2>
+      <p id="example-meta"></p>
+    </div>
+    <pre id="example-code"></pre>
+  </section>
   <details id="code-panel">
-    <summary>Source code</summary>
+    <summary>Full library source</summary>
     <pre id="code"></pre>
   </details>
 </div>

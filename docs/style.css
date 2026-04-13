@@ -159,12 +159,35 @@ body {
   line-height: 1.45;
 }
 
-#code-meta {
+#library-meta,
+#example-meta {
   margin: 0 0 10px;
   color: var(--muted);
   font-size: 0.88rem;
   font-family: "JetBrains Mono", Consolas, monospace;
   letter-spacing: 0.01em;
+}
+
+.section-header {
+  margin-bottom: 10px;
+}
+
+.section-header h2 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: var(--accent-strong);
+}
+
+#example-section {
+  margin-bottom: 16px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(31, 40, 56, 0.08);
+}
+
+#example-section pre {
+  border-radius: 12px;
 }
 
 .markdown {
