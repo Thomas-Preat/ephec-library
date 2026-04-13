@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Python Projects</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    pre { background: #111; color: #0f0; padding: 15px; overflow-x: auto; }
+    li { cursor: pointer; margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+<h1>Python Files</h1>
+<ul id="file-list"></ul>
+
+<h2>Preview</h2>
+<pre id="code"></pre>
+
+<script>
+  const repo = "Thomas-Preat/ephec-library";
+
+  fetch(`https://api.github.com/repos/${repo}/contents/`)
+    .then(res => res.json())
+    .then(files => {
+      const pyFiles = files.filter(f => f.name.endsWith(".py"));
+      const list = document.getElementById("file-list");
+
+      pyFiles.forEach(file => {
+        const li = document.createElement("li");
+        li.textContent = file.name;
+
+        li.onclick = () => {
+          fetch(file.download_url)
+            .then(res => res.text())
+            .then(code => {
+              document.getElementById("code").textContent = code;
+            });
+        };
+
+        list.appendChild(li);
+      });
+    });
+</script>
+
+</body>
+</html>
