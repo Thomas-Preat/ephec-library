@@ -2,45 +2,132 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Python Projects</title>
+  <title>Student Python Library</title>
+
   <style>
-    body { font-family: Arial; margin: 20px; }
-    pre { background: #111; color: #0f0; padding: 15px; overflow-x: auto; }
-    li { cursor: pointer; margin: 5px 0; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    #sidebar {
+      width: 250px;
+      background: #1e1e2f;
+      color: white;
+      padding: 15px;
+      overflow-y: auto;
+    }
+
+    #sidebar h2 {
+      font-size: 18px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 5px;
+    }
+
+    .category {
+      margin-top: 15px;
+    }
+
+    .file {
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .file:hover {
+      color: white;
+    }
+
+    /* Main content */
+    #main {
+      flex: 1;
+      padding: 20px;
+      background: #f5f5f5;
+      overflow-y: auto;
+    }
+
+    pre {
+      background: #111;
+      color: #0f0;
+      padding: 15px;
+      overflow-x: auto;
+      border-radius: 8px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
   </style>
 </head>
+
 <body>
 
-<h1>Python Files</h1>
-<ul id="file-list"></ul>
+<div id="sidebar">
+  <h1>Modules</h1>
+  <div id="categories"></div>
+</div>
 
-<h2>Preview</h2>
-<pre id="code"></pre>
+<div id="main">
+  <h1>Welcome</h1>
+  <p>Select a file from the left.</p>
+  <pre id="code"></pre>
+</div>
 
 <script>
-  const repo = "Thomas-Preat/ephec-library";
+const repo = "YOUR_USERNAME/YOUR_REPO";
 
-  fetch(`https://api.github.com/repos/${repo}/contents/`)
-    .then(res => res.json())
-    .then(files => {
-      const pyFiles = files.filter(f => f.name.endsWith(".py"));
-      const list = document.getElementById("file-list");
+// Change this if your code is inside /code
+const basePath = "code";
 
-      pyFiles.forEach(file => {
-        const li = document.createElement("li");
-        li.textContent = file.name;
+async function fetchDir(path) {
+  const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`);
+  return res.json();
+}
 
-        li.onclick = () => {
-          fetch(file.download_url)
-            .then(res => res.text())
-            .then(code => {
-              document.getElementById("code").textContent = code;
-            });
+async function loadCategories() {
+  const categoriesDiv = document.getElementById("categories");
+
+  const folders = await fetchDir(basePath);
+
+  for (const folder of folders) {
+    if (folder.type !== "dir") continue;
+
+    const categoryDiv = document.createElement("div");
+    categoryDiv.className = "category";
+
+    const title = document.createElement("h2");
+    title.textContent = folder.name;
+    categoryDiv.appendChild(title);
+
+    const files = await fetchDir(folder.path);
+
+    files
+      .filter(f => f.name.endsWith(".py"))
+      .forEach(file => {
+        const fileEl = document.createElement("div");
+        fileEl.className = "file";
+        fileEl.textContent = file.name;
+
+        fileEl.onclick = async () => {
+          const res = await fetch(file.download_url);
+          const code = await res.text();
+
+          document.getElementById("code").textContent = code;
+          document.querySelector("#main h1").textContent = file.name;
         };
 
-        list.appendChild(li);
+        categoryDiv.appendChild(fileEl);
       });
-    });
+
+    categoriesDiv.appendChild(categoryDiv);
+  }
+}
+
+loadCategories();
 </script>
 
 </body>
