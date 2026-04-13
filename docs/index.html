@@ -98,7 +98,7 @@ async function loadCategories() {
       fileEl.textContent = file.name;
 
       fileEl.onclick = async () => {
-        const res = await fetch(`../${file.path}`);
+        const res = await fetch(file.path);
         const code = await res.text();
 
         document.getElementById("code").textContent = code;
