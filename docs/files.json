@@ -1,102 +1,102 @@
 {
   "actuators": [
     {
-      "name": "servo.py",
-      "path": "code/actuators/servo.py",
-      "descriptionPath": "descriptions/actuators/servo.md",
+      "name": "servo",
+      "path": "elements/actuators/servo/servo.py",
+      "descriptionPath": "elements/actuators/servo/servo.md",
       "examplePath": null
     }
   ],
   "audio": [
     {
-      "name": "pmod_i2s2.py",
-      "path": "code/audio/pmod_i2s2.py",
+      "name": "pmod i2s2",
+      "path": "elements/audio/pmod_i2s2/pmod_i2s2.py",
       "descriptionPath": null,
       "examplePath": null
     }
   ],
   "display": [
     {
-      "name": "lcd.py",
-      "path": "code/display/lcd.py",
+      "name": "lcd",
+      "path": "elements/display/lcd/lcd.py",
       "descriptionPath": null,
       "examplePath": null
     },
     {
-      "name": "pmod8led.py",
-      "path": "code/display/pmod8led.py",
+      "name": "pmod8led",
+      "path": "elements/display/pmod8led/pmod8led.py",
       "descriptionPath": null,
-      "examplePath": "examples/display/pmod8led_example.py"
+      "examplePath": "elements/display/pmod8led/pmod8led_example.py"
     },
     {
-      "name": "pmod_oled.py",
-      "path": "code/display/pmod_oled.py",
+      "name": "pmod oled",
+      "path": "elements/display/pmod_oled/pmod_oled.py",
       "descriptionPath": null,
-      "examplePath": "examples/display/pmod_oled_example.py"
+      "examplePath": "elements/display/pmod_oled/pmod_oled_example.py"
     },
     {
-      "name": "rgb_ble_pico2w.py",
-      "path": "code/display/rgb_ble_pico2w.py",
+      "name": "rgb ble pico2w",
+      "path": "elements/display/rgb_ble_pico2w/rgb_ble_pico2w.py",
       "descriptionPath": null,
       "examplePath": null
     },
     {
-      "name": "rgb_fade_pico2w.py",
-      "path": "code/display/rgb_fade_pico2w.py",
+      "name": "rgb fade pico2w",
+      "path": "elements/display/rgb_fade_pico2w/rgb_fade_pico2w.py",
       "descriptionPath": null,
       "examplePath": null
     },
     {
-      "name": "tm1637.py",
-      "path": "code/display/tm1637.py",
+      "name": "tm1637",
+      "path": "elements/display/tm1637/tm1637.py",
       "descriptionPath": null,
-      "examplePath": "examples/display/tm1637_example.py"
+      "examplePath": "elements/display/tm1637/tm1637_example.py"
     }
   ],
   "input": [
     {
-      "name": "JSTK.py",
-      "path": "code/input/JSTK.py",
-      "descriptionPath": "descriptions/input/JSTK.md",
+      "name": "JSTK",
+      "path": "elements/input/JSTK/JSTK.py",
+      "descriptionPath": "elements/input/JSTK/JSTK.md",
       "examplePath": null
     },
     {
-      "name": "KYPD.py",
-      "path": "code/input/KYPD.py",
+      "name": "KYPD",
+      "path": "elements/input/KYPD/KYPD.py",
       "descriptionPath": null,
       "examplePath": null
     }
   ],
   "sensors": [
     {
-      "name": "MAXSONAR.py",
-      "path": "code/sensors/MAXSONAR.py",
-      "descriptionPath": "descriptions/sensors/MAXSONAR.md",
+      "name": "MAXSONAR",
+      "path": "elements/sensors/MAXSONAR/MAXSONAR.py",
+      "descriptionPath": "elements/sensors/MAXSONAR/MAXSONAR.md",
       "examplePath": null
     },
     {
-      "name": "accelerometre-acl.py",
-      "path": "code/sensors/accelerometre-acl.py",
+      "name": "accelerometre acl",
+      "path": "elements/sensors/accelerometre-acl/accelerometre-acl.py",
       "descriptionPath": null,
       "examplePath": null
     },
     {
-      "name": "gp2y0a21yk0f.py",
-      "path": "code/sensors/gp2y0a21yk0f.py",
+      "name": "gp2y0a21yk0f",
+      "path": "elements/sensors/gp2y0a21yk0f/gp2y0a21yk0f.py",
       "descriptionPath": null,
-      "examplePath": "examples/sensors/gp2y0a21yk0f_example.py"
+      "examplePath": "elements/sensors/gp2y0a21yk0f/gp2y0a21yk0f_example.py"
     },
     {
-      "name": "motion_sensor.py",
-      "path": "code/sensors/motion_sensor.py",
-      "descriptionPath": "descriptions/sensors/motion_sensor.md",
-      "examplePath": "examples/sensors/motion_sensor_example.py"
+      "name": "motion sensor",
+      "path": "elements/sensors/motion_sensor/motion_sensor.py",
+      "descriptionPath": "elements/sensors/motion_sensor/motion_sensor.md",
+      "examplePath": "elements/sensors/motion_sensor/motion_sensor_example.py"
     },
     {
-      "name": "pmodcmps.py",
-      "path": "code/sensors/pmodcmps.py",
+      "name": "pmodcmps",
+      "path": "elements/sensors/pmodcmps/pmodcmps.py",
       "descriptionPath": null,
-      "examplePath": "examples/sensors/pmodcmps_example.py"
+      "examplePath": "elements/sensors/pmodcmps/pmodcmps_example.py"
     }
   ]
 }
