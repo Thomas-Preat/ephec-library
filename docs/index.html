@@ -78,50 +78,32 @@
 </div>
 
 <script>
-const repo = "Thomas-Preat/ephec-library";
-
-// Change this if your code is inside /code
-const basePath = "code";
-
-async function fetchDir(path) {
-  const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`);
-  return res.json();
-}
-
 async function loadCategories() {
+  const res = await fetch("files.json");
+  const data = await res.json();
+
   const categoriesDiv = document.getElementById("categories");
 
-  const folders = await fetchDir(basePath);
-
-  for (const folder of folders) {
-    if (folder.type !== "dir") continue;
-
+  for (const category in data) {
     const categoryDiv = document.createElement("div");
     categoryDiv.className = "category";
 
     const title = document.createElement("h2");
-    title.textContent = folder.name;
+    title.textContent = category;
     categoryDiv.appendChild(title);
 
-    const files = await fetchDir(folder.path);
+    data[category].forEach(file => {
+      const fileEl = document.createElement("div");
+      fileEl.className = "file";
+      fileEl.textContent = file.name;
 
-    files
-      .filter(f => f.name.endsWith(".py"))
-      .forEach(file => {
-        const fileEl = document.createElement("div");
-        fileEl.className = "file";
-        fileEl.textContent = file.name;
+      fileEl.onclick = () => {
+        document.getElementById("code").textContent = file.content;
+        document.querySelector("#main h1").textContent = file.name;
+      };
 
-        fileEl.onclick = async () => {
-          const res = await fetch(file.download_url);
-          const code = await res.text();
-
-          document.getElementById("code").textContent = code;
-          document.querySelector("#main h1").textContent = file.name;
-        };
-
-        categoryDiv.appendChild(fileEl);
-      });
+      categoryDiv.appendChild(fileEl);
+    });
 
     categoriesDiv.appendChild(categoryDiv);
   }
