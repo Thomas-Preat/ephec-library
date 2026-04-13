@@ -15,8 +15,8 @@ ADXL345 est un petit accéléromètre à 3 axes qui présente une plage dynamiqu
 - Câbles de connexion
 
 ![Illustration du module PmodACL](https://picsum.photos/seed/pmod-acl/800/400)
-![Illustration du module PmodACL](ScoobyImage.jpg)
-![Illustration du module PmodACL](ScoobySticker.png)
+![Illustration du module PmodACL2](ScoobyImage.jpg)
+![Illustration du module PmodACL3](ScoobySticker.png)
 
 ## 🔌 Connexions
 
