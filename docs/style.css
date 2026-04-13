@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-1: #f2efe9;
+  --bg-2: #dfe6ed;
+  --panel: rgba(255, 255, 255, 0.74);
+  --panel-border: rgba(30, 40, 58, 0.18);
+  --text: #1f2838;
+  --muted: #5b677d;
+  --accent: #007f8c;
+  --accent-strong: #015d67;
+  --code-bg: #0f1720;
+  --code-text: #d6ffe0;
+  --shadow: 0 16px 40px rgba(18, 30, 46, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Chivo", "Segoe UI", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 8% 10%, rgba(0, 127, 140, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(255, 151, 79, 0.2), transparent 38%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2));
+}
+
+#sidebar {
+  width: 250px;
+  max-width: 32vw;
+  margin: 18px 0 18px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  overflow-y: auto;
+  animation: appear 0.55s ease-out;
+}
+
+#sidebar h1 {
+  margin: 2px 0 8px;
+  font-size: 1.45rem;
+  letter-spacing: 0.02em;
+}
+
+#sidebar .subtitle {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.category {
+  margin-top: 16px;
+  padding: 10px 10px 8px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(31, 40, 56, 0.08);
+  animation: slideIn 0.55s ease both;
+}
+
+.category-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 8px;
+  border: 0;
+  border-bottom: 1px solid rgba(31, 40, 56, 0.14);
+  background: none;
+  color: var(--muted);
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.category-toggle:hover {
+  color: var(--accent-strong);
+}
+
+.caret {
+  font-size: 0.86rem;
+  transition: transform 0.2s ease;
+}
+
+.category.closed .caret {
+  transform: rotate(-90deg);
+}
+
+.files {
+  margin-top: 10px;
+  overflow: hidden;
+  max-height: 600px;
+  transition: max-height 0.25s ease, opacity 0.2s ease;
+  opacity: 1;
+}
+
+.category.closed .files {
+  max-height: 0;
+  opacity: 0;
+}
+
+.file {
+  cursor: pointer;
+  margin: 0 0 6px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.file:hover {
+  color: var(--accent-strong);
+  background: rgba(0, 127, 140, 0.12);
+  transform: translateX(2px);
+}
+
+.file.active {
+  color: #f7fffd;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 8px 20px rgba(1, 93, 103, 0.35);
+}
+
+#main {
+  flex: 1;
+  margin: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  overflow-y: auto;
+  animation: appear 0.65s ease-out;
+}
+
+#main h1 {
+  margin: 0;
+  font-size: 1.55rem;
+  letter-spacing: 0.01em;
+}
+
+#main .intro {
+  margin: 8px 0 16px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+#code-meta {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  letter-spacing: 0.01em;
+}
+
+pre {
+  margin: 0;
+  background: var(--code-bg);
+  color: var(--code-text);
+  border: 1px solid rgba(214, 255, 224, 0.2);
+  padding: 15px;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
+
+@media (max-width: 840px) {
+  body {
+    flex-direction: column;
+  }
+
+  #sidebar,
+  #main {
+    width: auto;
+    max-width: none;
+    margin: 12px;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
