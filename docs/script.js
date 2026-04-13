@@ -1,105 +1,19 @@
-function escapeHtml(value) {
-  return value
+function renderMarkdown(markdown) {
+  if (window.marked) {
+    marked.setOptions({
+      gfm: true,
+      breaks: true,
+    });
+
+    const rendered = marked.parse(markdown);
+    return window.DOMPurify ? DOMPurify.sanitize(rendered) : rendered;
+  }
+
+  const escaped = markdown
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#39;");
-}
-
-function renderInlineMarkdown(text) {
-  return escapeHtml(text)
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
-}
-
-function renderMarkdown(markdown) {
-  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
-  const html = [];
-  let inList = false;
-  let inCodeBlock = false;
-  let codeBuffer = [];
-  let paragraphBuffer = [];
-
-  function flushParagraph() {
-    if (!paragraphBuffer.length) {
-      return;
-    }
-
-    html.push(`<p>${renderInlineMarkdown(paragraphBuffer.join(" "))}</p>`);
-    paragraphBuffer = [];
-  }
-
-  function closeList() {
-    if (!inList) {
-      return;
-    }
-
-    html.push("</ul>");
-    inList = false;
-  }
-
-  for (const rawLine of lines) {
-    const line = rawLine.trimEnd();
-
-    if (line.startsWith("```") || line.startsWith("~~~")) {
-      flushParagraph();
-      closeList();
-
-      if (inCodeBlock) {
-        html.push(`<pre><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`);
-        codeBuffer = [];
-        inCodeBlock = false;
-      } else {
-        inCodeBlock = true;
-      }
-
-      continue;
-    }
-
-    if (inCodeBlock) {
-      codeBuffer.push(rawLine);
-      continue;
-    }
-
-    if (!line) {
-      flushParagraph();
-      closeList();
-      continue;
-    }
-
-    const headingMatch = line.match(/^(#{1,3})\s+(.+)$/);
-    if (headingMatch) {
-      flushParagraph();
-      closeList();
-      const level = headingMatch[1].length;
-      html.push(`<h${level}>${renderInlineMarkdown(headingMatch[2])}</h${level}>`);
-      continue;
-    }
-
-    const listMatch = line.match(/^[-*]\s+(.+)$/);
-    if (listMatch) {
-      flushParagraph();
-      if (!inList) {
-        html.push("<ul>");
-        inList = true;
-      }
-      html.push(`<li>${renderInlineMarkdown(listMatch[1])}</li>`);
-      continue;
-    }
-
-    paragraphBuffer.push(line);
-  }
-
-  flushParagraph();
-  closeList();
-
-  if (inCodeBlock) {
-    html.push(`<pre><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`);
-  }
-
-  return html.join("");
+    .replaceAll(">", "&gt;");
+  return `<pre><code>${escaped}</code></pre>`;
 }
 
 async function loadCategories() {

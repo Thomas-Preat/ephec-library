@@ -14,6 +14,8 @@ ADXL345 est un petit accéléromètre à 3 axes qui présente une plage dynamiqu
 - Raspberry Pi Pico
 - Câbles de connexion
 
+![Illustration du module PmodACL](https://placehold.co/800x400/png?text=PmodACL+Image)
+
 ## 🔌 Connexions
 
 | **Broche ACL** | **Broche Raspberry Pi Pico** |
