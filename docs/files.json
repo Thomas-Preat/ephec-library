@@ -77,7 +77,7 @@
     {
       "name": "accelerometre acl",
       "path": "elements/sensors/accelerometre-acl/accelerometre-acl.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/sensors/accelerometre-acl/accelerometre-acl.md",
       "examplePath": null
     },
     {
