@@ -1,4 +1,17 @@
-function renderMarkdown(markdown) {
+function isRelativeUrl(url) {
+  return url && !/^(?:[a-z]+:|\/\/|#|\/)/i.test(url);
+}
+
+function resolveRelativeUrl(url, sourcePath) {
+  if (!isRelativeUrl(url) || !sourcePath) {
+    return url;
+  }
+
+  const basePath = sourcePath.slice(0, sourcePath.lastIndexOf("/") + 1);
+  return new URL(url, `${window.location.href.replace(/[^/]*$/, "")}${basePath}`).toString();
+}
+
+function renderMarkdown(markdown, sourcePath) {
   if (window.marked) {
     marked.setOptions({
       gfm: true,
@@ -6,7 +19,20 @@ function renderMarkdown(markdown) {
     });
 
     const rendered = marked.parse(markdown);
-    return window.DOMPurify ? DOMPurify.sanitize(rendered) : rendered;
+    const safeHtml = window.DOMPurify ? DOMPurify.sanitize(rendered) : rendered;
+    const container = document.createElement("div");
+    container.innerHTML = safeHtml;
+
+    container.querySelectorAll("img[src], a[href]").forEach(node => {
+      if (node.tagName === "IMG") {
+        node.src = resolveRelativeUrl(node.getAttribute("src"), sourcePath);
+        return;
+      }
+
+      node.href = resolveRelativeUrl(node.getAttribute("href"), sourcePath);
+    });
+
+    return container.innerHTML;
   }
 
   const escaped = markdown
@@ -102,7 +128,7 @@ async function loadCategories() {
 
         codeEl.textContent = code;
         libraryMetaEl.textContent = file.path;
-        descriptionEl.innerHTML = renderMarkdown(description);
+        descriptionEl.innerHTML = renderMarkdown(description, file.descriptionPath);
         if (exampleCode) {
           exampleCodeEl.textContent = exampleCode;
           exampleMetaEl.textContent = file.examplePath;
