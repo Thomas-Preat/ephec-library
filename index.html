@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Python Projects</title>
+</head>
+<body>
+  <h1>Python Files</h1>
+  <ul id="file-list"></ul>
+
+  <script>
+    const repo = "Thomas-Preat/ephec-library";
+
+    fetch(`https://api.github.com/repos/${repo}/contents/`)
+      .then(res => res.json())
+      .then(files => {
+        const pyFiles = files.filter(f => f.name.endsWith(".py"));
+        const list = document.getElementById("file-list");
+
+        pyFiles.forEach(file => {
+          const li = document.createElement("li");
+          const link = document.createElement("a");
+
+          link.href = file.html_url;
+          link.textContent = file.name;
+          link.target = "_blank";
+
+          li.appendChild(link);
+          list.appendChild(li);
+        });
+      })
+      .catch(err => console.error(err));
+  </script>
+</body>
+</html>
