@@ -16,14 +16,9 @@ for category in os.listdir(BASE_DIR):
 
     for file in os.listdir(category_path):
         if file.endswith(".py"):
-            file_path = os.path.join(category_path, file)
-
-            with open(file_path, "r", encoding="utf-8") as f:
-                content = f.read()
-
             data[category].append({
                 "name": file,
-                "content": content
+                "path": f"{BASE_DIR}/{category}/{file}"
             })
 
 os.makedirs("docs", exist_ok=True)
