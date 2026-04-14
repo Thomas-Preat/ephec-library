@@ -11,7 +11,7 @@
     {
       "name": "pmod i2s2",
       "path": "elements/audio/pmod_i2s2/pmod_i2s2.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/audio/pmod_i2s2/pmod_i2s2.md",
       "examplePath": null
     }
   ],
@@ -19,37 +19,37 @@
     {
       "name": "lcd",
       "path": "elements/display/lcd/lcd.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/display/lcd/lcd.md",
       "examplePath": null
     },
     {
       "name": "pmod8led",
       "path": "elements/display/pmod8led/pmod8led.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/display/pmod8led/pmod8led.md",
       "examplePath": "elements/display/pmod8led/pmod8led_example.py"
     },
     {
       "name": "pmod oled",
       "path": "elements/display/pmod_oled/pmod_oled.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/display/pmod_oled/pmod_oled.md",
       "examplePath": "elements/display/pmod_oled/pmod_oled_example.py"
     },
     {
       "name": "rgb ble pico2w",
       "path": "elements/display/rgb_ble_pico2w/rgb_ble_pico2w.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/display/rgb_ble_pico2w/rgb_ble_pico2w.md",
       "examplePath": null
     },
     {
       "name": "rgb fade pico2w",
       "path": "elements/display/rgb_fade_pico2w/rgb_fade_pico2w.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/display/rgb_fade_pico2w/rgb_fade_pico2w.md",
       "examplePath": null
     },
     {
       "name": "tm1637",
       "path": "elements/display/tm1637/tm1637.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/display/tm1637/tm1637.md",
       "examplePath": "elements/display/tm1637/tm1637_example.py"
     }
   ],
@@ -63,7 +63,7 @@
     {
       "name": "KYPD",
       "path": "elements/input/KYPD/KYPD.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/input/KYPD/KYPD.md",
       "examplePath": null
     }
   ],
@@ -83,7 +83,7 @@
     {
       "name": "gp2y0a21yk0f",
       "path": "elements/sensors/gp2y0a21yk0f/gp2y0a21yk0f.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/sensors/gp2y0a21yk0f/gp2y0a21yk0f.md",
       "examplePath": "elements/sensors/gp2y0a21yk0f/gp2y0a21yk0f_example.py"
     },
     {
@@ -95,7 +95,7 @@
     {
       "name": "pmodcmps",
       "path": "elements/sensors/pmodcmps/pmodcmps.py",
-      "descriptionPath": null,
+      "descriptionPath": "elements/sensors/pmodcmps/pmodcmps.md",
       "examplePath": "elements/sensors/pmodcmps/pmodcmps_example.py"
     }
   ]

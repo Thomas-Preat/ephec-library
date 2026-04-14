@@ -11,26 +11,61 @@
 
 <div id="sidebar">
   <h1>Modules</h1>
-  <p class="subtitle">Browse the EPHEC Python library by category and inspect each module directly in your browser.</p>
+  <p class="subtitle">Parcourez la bibliotheque Python EPHEC par categorie et inspectez chaque module directement dans votre navigateur.</p>
+  <label class="search-label" for="module-search">Recherche</label>
+  <input id="module-search" class="search-input" type="search" placeholder="Rechercher un module..." autocomplete="off">
+  <button id="home-link" class="home-link active" type="button">Accueil</button>
   <div id="categories"></div>
 </div>
 
 <div id="main">
-  <h1>Welcome</h1>
-  <p class="intro">Select a file from the left to view its summary and source.</p>
-  <p id="library-meta">No file selected</p>
+  <h1>Bienvenue sur la bibliotheque EPHEC</h1>
+  <p class="intro">Cette page vous aide a comprendre comment parcourir le site, recuperer un module et l'utiliser dans vos projets MicroPython.</p>
+  <p id="library-meta">Page d'accueil</p>
   <div id="description" class="markdown">
-    <p>Select a module from the sidebar to load its documentation.</p>
+    <h2>Comment utiliser le site</h2>
+    <ol>
+      <li>Choisissez une categorie dans la barre laterale.</li>
+      <li>Ouvrez un module pour lire sa fiche rapide et sa documentation.</li>
+      <li>Copiez le code du module ou de l'exemple dans votre projet MicroPython.</li>
+      <li>Adaptez les broches GPIO selon votre cablage reel.</li>
+    </ol>
+    <h2>Ce que vous trouverez ici</h2>
+    <ul>
+      <li>Une documentation courte en francais pour chaque module.</li>
+      <li>Le code source complet consultable directement dans le navigateur.</li>
+      <li>Des exemples d'utilisation pour les modules qui en disposent.</li>
+    </ul>
+    <h2>Conseil de demarrage</h2>
+    <p>Commencez par un module simple, verifiez le cablage, puis executez un exemple minimal avant d'integrer le composant dans un projet plus grand.</p>
   </div>
+  <section id="home-section">
+    <div class="section-header">
+      <h2>Exemple de structure de projet</h2>
+      <p>Base minimale pour reutiliser un module de la bibliotheque.</p>
+    </div>
+    <button id="copy-home-code" class="copy-btn" type="button">Copier</button>
+    <pre id="home-code">from machine import Pin
+
+# Exemple generique: remplacez l'import par le module choisi.
+from servo import ServoMotor
+
+servo = ServoMotor(pin_number=15)
+servo.set_angle(0)
+
+print("Module charge et pret a l'emploi")</pre>
+  </section>
   <section id="example-section" hidden>
     <div class="section-header">
-      <h2>Example</h2>
+      <h2>Exemple</h2>
       <p id="example-meta"></p>
     </div>
+    <button id="copy-example-code" class="copy-btn" type="button">Copier</button>
     <pre id="example-code"></pre>
   </section>
   <details id="code-panel">
-    <summary>Full library source</summary>
+    <summary>Code source complet</summary>
+    <button id="copy-library-code" class="copy-btn in-summary" type="button">Copier</button>
     <pre id="code"></pre>
   </details>
 </div>

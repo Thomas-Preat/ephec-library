@@ -1,20 +1,35 @@
 # MAXSONAR
 
-This module provides a helper around a PMOD MAXSONAR distance sensor and supports multiple reading methods.
+Ce module simplifie la lecture d'un capteur de distance MAXSONAR.
 
-## What it does
+## Fiche rapide
 
-- Reads the PWM output and converts pulse width into distance.
-- Reads the analog output and estimates distance from the ADC value.
-- Reads UART packets when the sensor is connected over serial.
-- Returns structured dictionaries so the sensor state can be reused in other programs.
+- Plateforme: MicroPython / Raspberry Pi Pico
+- Interface: PWM, ADC, UART
+- Dependances: `machine`, `time`
 
-## Typical use
+## Pinout
 
-Use this module when you want distance measurements for obstacle detection, range feedback, or simple robotics projects.
+| Signal | Pico |
+|---|---|
+| PWM | GPIO 15 |
+| AN (analogique) | GPIO 26 |
+| Sensor TX -> Pico RX | GPIO 1 |
+| Sensor RX -> Pico TX | GPIO 0 |
 
-## Notes
+## Fonctions principales
 
-- The file defines default pins for PWM, analog, and UART wiring.
-- PWM and analog conversions use common MAXSONAR scaling assumptions.
-- The helper methods return both raw values and converted distances.
+- Lecture de la sortie PWM (`read_pulse_us`).
+- Lecture analogique (`read_analog_raw`, `read_analog_volts`).
+- Lecture UART (`read_uart_packet`, `read_uart_inches`).
+- Fonctions de haut niveau: `get_pwm_state`, `get_analog_state`, `get_uart_state`.
+
+## Remarques
+
+- Les conversions en distance reposent sur des echelles MAXSONAR usuelles.
+- Les fonctions de haut niveau retournent des dictionnaires prets a exploiter.
+
+## References
+
+- Digilent PMOD MAXSONAR (reference): https://digilent.com/reference/pmod/pmodmaxsonar/start
+- MaxBotix LV-MaxSonar datasheet: https://maxbotix.com/pages/lv-maxsonar-ez-datasheet

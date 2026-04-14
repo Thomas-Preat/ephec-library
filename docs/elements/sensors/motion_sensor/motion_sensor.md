@@ -1,20 +1,33 @@
-# Motion Sensor
+# Capteur de mouvement (PIR)
 
-This module wraps a PIR motion sensor such as the HC-SR501 and exposes a small API for checking whether movement has been detected.
+Ce module encapsule un capteur PIR (ex: HC-SR501) pour detecter une presence.
 
-## What it does
+## Fiche rapide
 
-- Configures the chosen GPIO pin as a digital input.
-- Provides a `motion()` helper that returns `True` when movement is detected.
-- Exposes `read()` if you need the raw `0` or `1` pin state.
-- Includes `wait_for_motion()` for blocking flows where your program should pause until movement is seen.
+- Plateforme: MicroPython / Raspberry Pi Pico
+- Interface: GPIO numerique
+- Dependances: `machine`, `utime`
 
-## Typical use
+## Pinout
 
-Use this module when you want to trigger an action only when a person or object moves in front of the sensor.
+| Signal | Pico |
+|---|---|
+| OUT | GPIO 16 |
+| VCC | Selon module PIR |
+| GND | GND |
 
-## Notes
+## Fonctions principales
 
-- PIR sensors usually need a short warm-up time after power-on.
-- The exact output behavior depends on your sensor module settings.
-- The default pin in this file is GPIO 16.
+- `motion()`: retourne `True` si un mouvement est detecte.
+- `read()`: retourne l'etat brut `0` ou `1`.
+- `wait_for_motion(timeout_ms, poll_ms)`: attend un mouvement, avec timeout optionnel.
+
+## Remarques
+
+- Un capteur PIR necessite souvent un court temps de stabilisation au demarrage.
+- Le comportement depend des reglages du module (sensibilite, temporisation).
+
+## References
+
+- HC-SR501 PIR overview: https://components101.com/sensors/hc-sr501-pir-sensor
+- MicroPython Pin API (officiel): https://docs.micropython.org/en/latest/library/machine.Pin.html

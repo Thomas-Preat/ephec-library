@@ -1,20 +1,35 @@
 # PMOD JSTK
 
-This module communicates with a Digilent PMOD JSTK joystick over SPI and exposes both axis and button state.
+Ce module lit un joystick PMOD JSTK via SPI et expose les axes et boutons.
 
-## What it does
+## Fiche rapide
 
-- Sets up the SPI bus and chip-select pin.
-- Reads X and Y joystick positions.
-- Reads the joystick push button plus the two extra buttons.
-- Provides helper functions to convert axis values into percentages and simple dashboard output.
+- Plateforme: MicroPython / Raspberry Pi Pico
+- Interface: SPI
+- Dependances: `machine`, `time`
 
-## Typical use
+## Pinout
 
-Use this module when you want directional input or button control for menus, robot control, or interactive demos.
+| Signal | Pico |
+|---|---|
+| SCK | GPIO 18 |
+| MOSI | GPIO 19 |
+| MISO | GPIO 16 |
+| CS | GPIO 17 |
 
-## Notes
+## Fonctions principales
 
-- The module assumes a Pico SPI0 wiring layout by default.
-- `get_joystick_state()` returns a reusable dictionary.
-- `show_dashboard()` prints a live terminal view until interrupted.
+- Lecture des axes `x` et `y` (10 bits).
+- Lecture des boutons: joystick, `btn1`, `btn2`.
+- `get_joystick_state()`: retourne un dictionnaire reutilisable.
+- `show_dashboard()`: affiche un tableau de bord texte en temps reel.
+
+## Remarques
+
+- Le dashboard tourne en boucle jusqu'a `Ctrl+C`.
+- Les fonctions utilitaires convertissent les axes en pourcentage.
+
+## References
+
+- Digilent PMOD JSTK2 (reference): https://digilent.com/reference/pmod/pmodjstk2/start
+- MicroPython SPI API (officiel): https://docs.micropython.org/en/latest/library/machine.SPI.html

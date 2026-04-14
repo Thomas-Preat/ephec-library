@@ -57,6 +57,59 @@ body {
   line-height: 1.35;
 }
 
+.search-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.search-input {
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 9px 10px;
+  border: 1px solid rgba(31, 40, 56, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--text);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 0.86rem;
+}
+
+.search-input:focus {
+  outline: 2px solid rgba(1, 93, 103, 0.35);
+  outline-offset: 1px;
+}
+
+.home-link {
+  width: 100%;
+  margin: 0 0 6px;
+  padding: 10px 12px;
+  border: 1px solid rgba(31, 40, 56, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: "Chivo", "Segoe UI", sans-serif;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.home-link:hover {
+  color: var(--accent-strong);
+  background: rgba(0, 127, 140, 0.1);
+}
+
+.home-link.active {
+  color: #f7fffd;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  box-shadow: 0 8px 20px rgba(1, 93, 103, 0.35);
+}
+
 .category {
   margin-top: 16px;
   padding: 10px 10px 8px;
@@ -186,8 +239,41 @@ body {
   border: 1px solid rgba(31, 40, 56, 0.08);
 }
 
+#home-section {
+  margin-bottom: 16px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(31, 40, 56, 0.08);
+}
+
 #example-section pre {
   border-radius: 12px;
+}
+
+#home-section pre {
+  border-radius: 12px;
+}
+
+.copy-btn {
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border: 1px solid rgba(31, 40, 56, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  color: var(--accent-strong);
+  border-color: rgba(1, 93, 103, 0.35);
+}
+
+.copy-btn.in-summary {
+  margin: 0 16px 12px;
 }
 
 .markdown {

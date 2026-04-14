@@ -1,21 +1,35 @@
-# Servo Motor
+# Servo
 
-This module drives a hobby servo with PWM and keeps the control API simple for student projects.
+Ce module pilote un servomoteur via PWM avec une API simple.
 
-## What it does
+## Fiche rapide
 
-- Configures a PWM output on the selected pin.
-- Lets you set the servo angle between `-90` and `90` degrees.
-- Supports pulse calibration through `calibrate()`.
-- Includes a `sweep()` helper for quick movement tests.
-- Allows the PWM output to be released with `detach()`.
+- Plateforme: MicroPython / Raspberry Pi Pico
+- Interface: PWM
+- Dependances: `machine`, `time`
 
-## Typical use
+## Pinout
 
-Use this module when you need to point, rotate, or position a mechanical part with a servo motor.
+| Signal | Pico |
+|---|---|
+| Signal servo | GPIO 15 |
+| VCC servo | Selon le servo |
+| GND servo | GND |
 
-## Notes
+## Fonctions principales
 
-- The default PWM frequency is `50 Hz`, which is common for servos.
-- Pulse width limits may need adjustment depending on the servo model.
-- The example code at the bottom of the module immediately sweeps a test servo.
+- `set_angle(angle)`: positionne le servo entre `-90` et `90` degres.
+- `get_angle()`: retourne l'angle courant.
+- `calibrate(min_pulse, max_pulse)`: ajuste les impulsions min/max.
+- `sweep(start, end, step, delay)`: effectue un balayage automatique.
+- `detach()`: desactive le PWM.
+
+## Remarques
+
+- Frequence PWM par defaut: `50 Hz`.
+- Les valeurs `min_pulse` et `max_pulse` peuvent varier selon le modele.
+
+## References
+
+- MicroPython PWM (officiel): https://docs.micropython.org/en/latest/library/machine.PWM.html
+- Servo SG90 (specifications): https://www.servodatabase.com/servo/towerpro/sg90
