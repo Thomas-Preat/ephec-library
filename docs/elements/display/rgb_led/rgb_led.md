@@ -2,7 +2,7 @@
 
 Ce dossier regroupe les modules RGB pour Pico.
 
-<img src="https://placehold.co/260x160/png?text=RGB+LED" alt="Illustration RGB LED" width="220" align="left">
+<img src="https://europe1.discourse-cdn.com/arduino/original/4X/e/7/6/e76bc03f40852645e65379a0969876e46ddf2397.png" alt="Illustration RGB LED" width="220" align="left">
 
 ## Vue d'ensemble
 

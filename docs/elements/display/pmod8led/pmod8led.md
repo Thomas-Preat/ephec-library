@@ -2,7 +2,7 @@
 
 Ce module controle un PMOD 8 LED avec 8 GPIO.
 
-<img src="https://placehold.co/260x160/png?text=PMOD8LED" alt="Illustration PMOD8LED" width="220" align="left">
+<img src="https://digilent.com/reference/_media/reference/pmod/pmod8ld/pmod8ld-1.png" alt="Illustration PMOD8LED" width="220" align="left">
 
 ## Fiche rapide
 

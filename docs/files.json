@@ -17,6 +17,12 @@
   ],
   "display": [
     {
+      "name": "afficheur 4x 7 segments",
+      "path": "elements/display/afficheur_4x_7_segments/tm1637.py",
+      "descriptionPath": "elements/display/afficheur_4x_7_segments/tm1637.md",
+      "examplePath": "elements/display/afficheur_4x_7_segments/tm1637_example.py"
+    },
+    {
       "name": "lcd",
       "path": "elements/display/lcd/lcd.py",
       "descriptionPath": "elements/display/lcd/lcd.md",
@@ -39,12 +45,6 @@
       "path": "elements/display/rgb_led/rgb_fade_pico2w.py",
       "descriptionPath": "elements/display/rgb_led/rgb_led.md",
       "examplePath": null
-    },
-    {
-      "name": "tm1637",
-      "path": "elements/display/tm1637/tm1637.py",
-      "descriptionPath": "elements/display/tm1637/tm1637.md",
-      "examplePath": "elements/display/tm1637/tm1637_example.py"
     }
   ],
   "input": [

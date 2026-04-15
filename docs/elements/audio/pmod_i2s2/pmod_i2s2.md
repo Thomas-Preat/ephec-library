@@ -2,7 +2,7 @@
 
 Ce module pilote la sortie audio I2S (DAC) du PMOD I2S2.
 
-<img src="https://placehold.co/260x160/png?text=PMOD+I2S2" alt="Illustration PMOD I2S2" width="220" align="left">
+<img src="https://cdn11.bigcommerce.com/s-7gavg/images/stencil/1280x1280/products/614/4980/Pmod_I2S2_-_Top_-_600__72867.1670979203.png?c=2" alt="Illustration PMOD I2S2" width="220" align="left">
 
 ## Fiche rapide
 

@@ -2,7 +2,7 @@
 
 Ce module pilote un PMOD OLED base sur SSD1306 en SPI.
 
-<img src="https://placehold.co/260x160/png?text=PMOD+OLED" alt="Illustration PMOD OLED" width="220" align="left">
+<img src="https://cdn11.bigcommerce.com/s-7gavg/images/stencil/1280x1280/products/199/3868/Pmod_OLED__17060.1670977686.png?c=2" alt="Illustration PMOD OLED" width="220" align="left">
 
 ## Fiche rapide
 

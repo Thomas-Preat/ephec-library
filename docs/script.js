@@ -49,6 +49,10 @@ function normalizeText(value) {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
+function fetchNoCache(url) {
+  return fetch(url, { cache: "no-store" });
+}
+
 async function copyTextToClipboard(text) {
   if (!text) {
     return false;
@@ -90,7 +94,7 @@ function wireCopyButton(button, getText) {
 }
 
 async function loadCategories() {
-  const res = await fetch("files.json");
+  const res = await fetchNoCache("files.json");
   const data = await res.json();
 
   const categoriesDiv = document.getElementById("categories");
@@ -204,7 +208,7 @@ async function loadCategories() {
           let description = "# Documentation indisponible\n\nAucune documentation Markdown n'a encore ete ajoutee pour ce module.";
 
           if (file.descriptionPath) {
-            const descriptionResponse = await fetch(file.descriptionPath);
+            const descriptionResponse = await fetchNoCache(file.descriptionPath);
             if (descriptionResponse.ok) {
               description = await descriptionResponse.text();
             }
@@ -223,9 +227,9 @@ async function loadCategories() {
           codeVariantsEl.innerHTML = "";
 
           const loadVariant = async variant => {
-            const requests = [fetch(variant.path)];
+            const requests = [fetchNoCache(variant.path)];
             if (variant.examplePath) {
-              requests.push(fetch(variant.examplePath));
+              requests.push(fetchNoCache(variant.examplePath));
             }
 
             const responses = await Promise.all(requests);
@@ -341,16 +345,16 @@ async function loadCategories() {
       });
 
       fileEl.onclick = async () => {
-        const requests = [fetch(file.path)];
+        const requests = [fetchNoCache(file.path)];
 
         if (file.descriptionPath) {
-          requests.push(fetch(file.descriptionPath));
+          requests.push(fetchNoCache(file.descriptionPath));
         } else {
           requests.push(null);
         }
 
         if (file.examplePath) {
-          requests.push(fetch(file.examplePath));
+          requests.push(fetchNoCache(file.examplePath));
         }
 
         const responses = await Promise.all(requests.filter(Boolean));

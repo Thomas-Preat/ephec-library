@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --bg-1: #140b1c;
-  --bg-2: #0c0713;
+  --bg-1: #802a90;
+  --bg-2: #36073b;
   --panel: rgba(27, 19, 43, 0.82);
-  --panel-border: rgba(157, 114, 255, 0.24);
+  --panel-border: rgb(156, 114, 255);
   --text: #eee8ff;
   --muted: #b9a9e9;
   --accent: #6d28d9;
