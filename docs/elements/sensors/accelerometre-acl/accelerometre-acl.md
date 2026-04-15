@@ -1,6 +1,8 @@
-# Accelerometre ACL (ADXL345)
+﻿# Accelerometre ACL (ADXL345)
 
 Ce module permet de lire un accelerometre 3 axes ADXL345 via SPI.
+
+<img src="https://placehold.co/260x160/png?text=ADXL345" alt="Illustration ADXL345" width="220" align="left">
 
 ## Fiche rapide
 

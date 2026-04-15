@@ -1,6 +1,8 @@
-# KYPD (clavier matriciel)
+﻿# KYPD (clavier matriciel)
 
 Ce module scanne un clavier matriciel 4x4 avec des GPIO Pico.
+
+<img src="https://placehold.co/260x160/png?text=KYPD+4x4" alt="Illustration KYPD" width="220" align="left">
 
 ## Fiche rapide
 
@@ -29,3 +31,4 @@ Ce module scanne un clavier matriciel 4x4 avec des GPIO Pico.
 
 - Digilent PMOD KYPD (reference): https://digilent.com/reference/pmod/pmodkypd/start
 - Matrix keypad scanning concept: https://www.embeddedrelated.com/showarticle/519.php
+

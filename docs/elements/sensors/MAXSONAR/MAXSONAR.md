@@ -1,6 +1,8 @@
-# MAXSONAR
+﻿# MAXSONAR
 
 Ce module simplifie la lecture d'un capteur de distance MAXSONAR.
+
+<img src="https://placehold.co/260x160/png?text=MAXSONAR" alt="Illustration MAXSONAR" width="220" align="left">
 
 ## Fiche rapide
 
@@ -41,3 +43,4 @@ Ce module simplifie la lecture d'un capteur de distance MAXSONAR.
 
 - Digilent PMOD MAXSONAR (reference): https://digilent.com/reference/pmod/pmodmaxsonar/start
 - MaxBotix LV-MaxSonar datasheet: https://maxbotix.com/pages/lv-maxsonar-ez-datasheet
+

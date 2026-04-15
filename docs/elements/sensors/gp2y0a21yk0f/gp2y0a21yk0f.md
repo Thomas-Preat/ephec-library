@@ -1,6 +1,8 @@
-# GP2Y0A21YK0F
+﻿# GP2Y0A21YK0F
 
 Ce module lit un capteur infrarouge analogique de distance Sharp GP2Y0A21YK0F.
+
+<img src="https://placehold.co/260x160/png?text=GP2Y0A21YK0F" alt="Illustration GP2Y0A21YK0F" width="220" align="left">
 
 ## Fiche rapide
 
@@ -40,3 +42,4 @@ Ce module lit un capteur infrarouge analogique de distance Sharp GP2Y0A21YK0F.
 
 - GP2Y0A21YK0F datasheet (Sharp): https://www.pololu.com/file/0J85/gp2y0a21yk0f.pdf
 - Product/application notes (Pololu): https://www.pololu.com/product/136
+

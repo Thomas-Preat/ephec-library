@@ -1,6 +1,8 @@
-# PMOD JSTK
+﻿# PMOD JSTK
 
 Ce module lit un joystick PMOD JSTK via SPI et expose les axes et boutons.
+
+<img src="https://placehold.co/260x160/png?text=PMOD+JSTK" alt="Illustration PMOD JSTK" width="220" align="left">
 
 ## Fiche rapide
 
@@ -35,3 +37,4 @@ Ce module lit un joystick PMOD JSTK via SPI et expose les axes et boutons.
 
 - Digilent PMOD JSTK2 (reference): https://digilent.com/reference/pmod/pmodjstk2/start
 - MicroPython SPI API (officiel): https://docs.micropython.org/en/latest/library/machine.SPI.html
+

@@ -1,6 +1,8 @@
-# PMOD8LED
+﻿# PMOD8LED
 
 Ce module controle un PMOD 8 LED avec 8 GPIO.
+
+<img src="https://placehold.co/260x160/png?text=PMOD8LED" alt="Illustration PMOD8LED" width="220" align="left">
 
 ## Fiche rapide
 
@@ -35,3 +37,4 @@ Ce module controle un PMOD 8 LED avec 8 GPIO.
 
 - Digilent PMOD 8LD (8 LEDs): https://digilent.com/reference/pmod/pmod8ld/start
 - MicroPython Pin API (officiel): https://docs.micropython.org/en/latest/library/machine.Pin.html
+

@@ -1,6 +1,8 @@
-# PMOD I2S2
+﻿# PMOD I2S2
 
 Ce module pilote la sortie audio I2S (DAC) du PMOD I2S2.
+
+<img src="https://placehold.co/260x160/png?text=PMOD+I2S2" alt="Illustration PMOD I2S2" width="220" align="left">
 
 ## Fiche rapide
 
@@ -34,3 +36,4 @@ Ce module pilote la sortie audio I2S (DAC) du PMOD I2S2.
 
 - Digilent PMOD I2S2 (reference): https://digilent.com/reference/pmod/pmodi2s2/start
 - MicroPython I2S (officiel): https://docs.micropython.org/en/latest/library/machine.I2S.html
+

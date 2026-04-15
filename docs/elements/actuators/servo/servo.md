@@ -2,6 +2,8 @@
 
 Ce module pilote un servomoteur via PWM avec une API simple.
 
+<img src="https://www.mgsuperlabs.co.in/estore/image/cache/data/Digilent/DG%20290-010/GWS_Servo_Kit_obl_600__81147.1448323515.1280.1280-500x500.png" alt="Illustration Servo" width="220" align="left">
+
 ## Fiche rapide
 
 - Plateforme: MicroPython / Raspberry Pi Pico

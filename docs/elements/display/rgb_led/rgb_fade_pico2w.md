@@ -1,6 +1,8 @@
-# RGB Fade Pico 2W
+﻿# RGB Fade Pico 2W
 
 Ce module realise un fondu de couleurs continu sur une LED RGB.
+
+<img src="https://placehold.co/260x160/png?text=RGB+FADE" alt="Illustration RGB Fade" width="220" align="left">
 
 ## Fiche rapide
 
@@ -34,3 +36,4 @@ Ce module realise un fondu de couleurs continu sur une LED RGB.
 
 - Raspberry Pi Pico documentation: https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html
 - MicroPython PWM (officiel): https://docs.micropython.org/en/latest/library/machine.PWM.html
+

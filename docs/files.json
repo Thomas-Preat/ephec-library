@@ -35,15 +35,9 @@
       "examplePath": "elements/display/pmod_oled/pmod_oled_example.py"
     },
     {
-      "name": "rgb ble pico2w",
-      "path": "elements/display/rgb_ble_pico2w/rgb_ble_pico2w.py",
-      "descriptionPath": "elements/display/rgb_ble_pico2w/rgb_ble_pico2w.md",
-      "examplePath": null
-    },
-    {
-      "name": "rgb fade pico2w",
-      "path": "elements/display/rgb_fade_pico2w/rgb_fade_pico2w.py",
-      "descriptionPath": "elements/display/rgb_fade_pico2w/rgb_fade_pico2w.md",
+      "name": "rgb led",
+      "path": "elements/display/rgb_led/rgb_fade_pico2w.py",
+      "descriptionPath": "elements/display/rgb_led/rgb_led.md",
       "examplePath": null
     },
     {

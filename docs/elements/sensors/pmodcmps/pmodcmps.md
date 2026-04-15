@@ -1,6 +1,8 @@
-# PMODCMPS
+﻿# PMODCMPS
 
 Ce module pilote un magnetometre type HMC5883L via I2C.
+
+<img src="https://placehold.co/260x160/png?text=PMODCMPS" alt="Illustration PMODCMPS" width="220" align="left">
 
 ## Fiche rapide
 
@@ -37,3 +39,4 @@ Ce module pilote un magnetometre type HMC5883L via I2C.
 
 - Digilent PMOD CMPS2 (reference): https://digilent.com/reference/pmod/pmodcmps2/start
 - HMC5883L datasheet: https://cdn.sparkfun.com/datasheets/Sensors/Magneto/HMC5883L-FDS.pdf
+

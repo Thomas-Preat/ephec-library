@@ -1,6 +1,8 @@
-# Capteur de mouvement (PIR)
+﻿# Capteur de mouvement (PIR)
 
 Ce module encapsule un capteur PIR (ex: HC-SR501) pour detecter une presence.
+
+<img src="https://placehold.co/260x160/png?text=PIR+SENSOR" alt="Illustration capteur PIR" width="220" align="left">
 
 ## Fiche rapide
 
@@ -34,3 +36,4 @@ Ce module encapsule un capteur PIR (ex: HC-SR501) pour detecter une presence.
 
 - HC-SR501 PIR overview: https://components101.com/sensors/hc-sr501-pir-sensor
 - MicroPython Pin API (officiel): https://docs.micropython.org/en/latest/library/machine.Pin.html
+

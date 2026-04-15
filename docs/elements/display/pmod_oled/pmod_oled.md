@@ -1,6 +1,8 @@
-# PMOD OLED (SSD1306)
+﻿# PMOD OLED (SSD1306)
 
 Ce module pilote un PMOD OLED base sur SSD1306 en SPI.
+
+<img src="https://placehold.co/260x160/png?text=PMOD+OLED" alt="Illustration PMOD OLED" width="220" align="left">
 
 ## Fiche rapide
 
@@ -41,3 +43,4 @@ Ce module pilote un PMOD OLED base sur SSD1306 en SPI.
 
 - Digilent PMOD OLED (reference): https://digilent.com/reference/pmod/pmodoled/start
 - SSD1306 datasheet: https://cdn-shop.adafruit.com/datasheets/SSD1306.pdf
+

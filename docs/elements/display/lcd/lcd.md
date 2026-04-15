@@ -1,6 +1,8 @@
-# LCD (mode 8 bits)
+﻿# LCD (mode 8 bits)
 
 Ce module fournit des fonctions utilitaires pour afficher du texte sur un LCD parallele en mode 8 bits.
+
+<img src="https://placehold.co/260x160/png?text=LCD+8+BITS" alt="Illustration LCD" width="220" align="left">
 
 ## Fiche rapide
 
@@ -35,3 +37,4 @@ Ce module fournit des fonctions utilitaires pour afficher du texte sur un LCD pa
 
 - HD44780 datasheet (LCD controller): https://www.sparkfun.com/datasheets/LCD/HD44780.pdf
 - MicroPython Pin API (officiel): https://docs.micropython.org/en/latest/library/machine.Pin.html
+
