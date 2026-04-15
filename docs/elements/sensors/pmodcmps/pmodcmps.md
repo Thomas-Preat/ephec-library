@@ -18,10 +18,15 @@ Ce module pilote un magnetometre type HMC5883L via I2C.
 
 ## Fonctions principales
 
-- Initialisation et configuration du capteur.
-- Lecture des axes bruts (`read_raw`) et en Gauss (`read_gauss`).
-- Calcul du cap (`heading`) avec declinaison magnetique.
-- Verification de l'identite (`identify`) et disponibilite des donnees (`is_ready`).
+| Fonction | Parametres | Description |
+|---|---|---|
+| `PmodCMPS(i2c, addr=0x1E, declination_deg=0.0)` | `i2c`: instance I2C, `addr`: adresse du capteur, `declination_deg`: declinaison magnetique | Initialise et configure le magnetometre. |
+| `set_gain(gain_cfg)` | `gain_cfg`: configuration de gain | Regle le gain de mesure du capteur. |
+| `is_ready()` | Aucun | Indique si de nouvelles donnees sont disponibles. |
+| `read_raw()` | Aucun | Lit les axes magnetiques bruts. |
+| `read_gauss()` | Aucun | Retourne les axes convertis en Gauss. |
+| `heading()` | Aucun | Calcule le cap magnetique corrige de la declinaison. |
+| `identify()` | Aucun | Verifie l'identite du composant. |
 
 ## Remarques
 

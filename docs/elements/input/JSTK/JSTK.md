@@ -19,10 +19,12 @@ Ce module lit un joystick PMOD JSTK via SPI et expose les axes et boutons.
 
 ## Fonctions principales
 
-- Lecture des axes `x` et `y` (10 bits).
-- Lecture des boutons: joystick, `btn1`, `btn2`.
-- `get_joystick_state()`: retourne un dictionnaire reutilisable.
-- `show_dashboard()`: affiche un tableau de bord texte en temps reel.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `PmodJSTK(spi_id=0, sck=18, mosi=19, miso=16, cs=17)` | `spi_id`: bus SPI, `sck`, `mosi`, `miso`, `cs`: broches SPI | Initialise le joystick PMOD JSTK via SPI. |
+| `read()` | Aucun | Lit les axes et boutons dans leur format brut. |
+| `get_joystick_state(jstk)` | `jstk`: instance `PmodJSTK` | Retourne un dictionnaire d'etat reutilisable pour les axes et boutons. |
+| `show_dashboard(jstk, refresh_s=0.08)` | `jstk`: instance `PmodJSTK`, `refresh_s`: periode de rafraichissement | Affiche un tableau de bord texte en temps reel. |
 
 ## Remarques
 

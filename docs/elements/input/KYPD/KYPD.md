@@ -17,9 +17,9 @@ Ce module scanne un clavier matriciel 4x4 avec des GPIO Pico.
 
 ## Fonctions principales
 
-- Configure 4 lignes en sortie et 4 colonnes en entree pull-up.
-- `scan_keypad()` retourne la touche detectee ou `None`.
-- Une boucle de demo affiche les touches appuyees.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `scan_keypad()` | Aucun | Scanne la matrice 4x4 et retourne la touche detectee ou `None`. |
 
 ## Remarques
 

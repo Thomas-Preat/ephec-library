@@ -18,11 +18,13 @@ Ce module fournit des fonctions utilitaires pour afficher du texte sur un LCD pa
 
 ## Fonctions principales
 
-- `lcd_init(...)`: initialise l'afficheur.
-- `lcd_command(...)`: envoie une commande.
-- `lcd_write_char(...)`: envoie un caractere.
-- `lcd_set_cursor(...)`: place le curseur.
-- `lcd_write_string(...)`: ecrit une chaine.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `lcd_init(rs, e, data_pins)` | `rs`: broche RS, `e`: broche Enable, `data_pins`: liste D0 a D7 | Initialise l'afficheur LCD en mode 8 bits. |
+| `lcd_command(rs, e, data_pins, cmd)` | `rs`: broche RS, `e`: broche Enable, `data_pins`: lignes de donnees, `cmd`: commande a envoyer | Envoie une commande au LCD. |
+| `lcd_write_char(rs, e, data_pins, char)` | `rs`: broche RS, `e`: broche Enable, `data_pins`: lignes de donnees, `char`: caractere ASCII | Ecrit un caractere sur l'afficheur. |
+| `lcd_set_cursor(rs, e, data_pins, row, col)` | `rs`: broche RS, `e`: broche Enable, `data_pins`: lignes de donnees, `row`: ligne, `col`: colonne | Place le curseur a la position voulue. |
+| `lcd_write_string(rs, e, data_pins, text)` | `rs`: broche RS, `e`: broche Enable, `data_pins`: lignes de donnees, `text`: texte a afficher | Ecrit une chaine complete sur le LCD. |
 
 ## Remarques
 

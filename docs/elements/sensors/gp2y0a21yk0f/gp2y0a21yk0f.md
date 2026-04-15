@@ -18,10 +18,18 @@ Ce module lit un capteur infrarouge analogique de distance Sharp GP2Y0A21YK0F.
 
 ## Fonctions principales
 
-- Lecture brute ADC (`read_raw`) et tension (`read_voltage`).
-- Conversion en distance (`read_distance`, `read_distance_raw`).
-- Filtrage par moyenne (`read_distance_smooth`).
-- Outils de calibration (`calibrate`, `set_calibration`, `get_calibration`).
+| Fonction | Parametres | Description |
+|---|---|---|
+| `GP2Y0A21YK0F(adc_pin=26, voltage_ref=3.3, bit_resolution=12)` | `adc_pin`: broche analogique, `voltage_ref`: tension de reference, `bit_resolution`: resolution ADC cible | Initialise le capteur de distance analogique. |
+| `read_raw()` | Aucun | Retourne la lecture brute ADC. |
+| `read_voltage()` | Aucun | Convertit la lecture brute en tension. |
+| `read_distance()` | Aucun | Estime la distance en cm avec validation de plage. |
+| `read_distance_raw()` | Aucun | Estime la distance en cm sans validation de plage. |
+| `read_distance_smooth(samples=10, delay_ms=5)` | `samples`: nombre de mesures, `delay_ms`: pause entre mesures | Filtre la mesure par moyenne glissante. |
+| `calibrate(known_distance_cm, samples=20)` | `known_distance_cm`: distance de reference, `samples`: nombre de mesures pour la calibration | Calibre le modele sur une distance connue. |
+| `set_calibration(a_coeff, b_coeff)` | `a_coeff`, `b_coeff`: coefficients du modele | Definit manuellement la calibration active. |
+| `get_calibration()` | Aucun | Retourne les coefficients de calibration actifs. |
+| `test(duration_seconds=10)` | `duration_seconds`: duree du test | Lance une boucle de test et affiche les mesures. |
 
 ## Remarques
 

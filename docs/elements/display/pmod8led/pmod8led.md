@@ -16,10 +16,15 @@ Ce module controle un PMOD 8 LED avec 8 GPIO.
 
 ## Fonctions principales
 
-- `clear()` et `fill()` pour eteindre/allumer toutes les LED.
-- `set_led(index, on)` et `toggle_led(index)` pour une LED.
-- `write_byte(value)` pour ecrire un motif 8 bits.
-- `chase()` pour un effet de chenillard.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `Pmod8LED(led_pins, active_high=True)` | `led_pins`: liste des 8 broches, `active_high`: logique active haute ou basse | Initialise le module 8 LED avec les broches choisies. |
+| `clear()` | Aucun | Eteint toutes les LED. |
+| `fill(on=True)` | `on`: etat a appliquer a toutes les LED | Allume ou eteint toutes les LED. |
+| `set_led(index, on=True)` | `index`: LED de `0` a `7`, `on`: etat a appliquer | Modifie l'etat d'une LED precise. |
+| `toggle_led(index)` | `index`: LED de `0` a `7` | Inverse l'etat d'une LED. |
+| `write_byte(value)` | `value`: motif 8 bits a afficher | Ecrit un motif binaire sur les LED. |
+| `chase(delay_s=0.1, cycles=1)` | `delay_s`: pause entre deux LED, `cycles`: nombre de cycles | Cree un effet de chenillard. |
 
 ## Remarques
 

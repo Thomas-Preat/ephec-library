@@ -149,7 +149,7 @@ async function loadCategories() {
     toggle.setAttribute("aria-expanded", "false");
 
     const titleText = document.createElement("span");
-    titleText.textContent = category;
+    titleText.textContent = category.toUpperCase();
 
     const caret = document.createElement("span");
     caret.className = "caret";
@@ -170,7 +170,7 @@ async function loadCategories() {
     data[category].forEach(file => {
       const fileEl = document.createElement("div");
       fileEl.className = "file";
-      fileEl.textContent = file.name;
+      fileEl.textContent = file.name.toUpperCase();
       fileRecords.push({
         el: fileEl,
         searchText: normalizeText(`${category} ${file.name} ${file.path}`),
@@ -216,13 +216,13 @@ async function loadCategories() {
 
         codeEl.textContent = code;
         codePanelEl.hidden = false;
-        libraryMetaEl.textContent = file.path;
+        libraryMetaEl.textContent = `Module: ${file.name}`;
         descriptionEl.hidden = false;
         homeSectionEl.hidden = true;
         descriptionEl.innerHTML = renderMarkdown(description, file.descriptionPath);
         if (exampleCode) {
           exampleCodeEl.textContent = exampleCode;
-          exampleMetaEl.textContent = file.examplePath;
+          exampleMetaEl.textContent = `Exemple pour ${file.name}`;
           exampleSectionEl.hidden = false;
         } else {
           exampleCodeEl.textContent = "";
@@ -230,7 +230,7 @@ async function loadCategories() {
           exampleSectionEl.hidden = true;
         }
         codePanelEl.open = false;
-        pageTitleEl.textContent = file.name;
+        pageTitleEl.textContent = file.name.toUpperCase();
       };
 
       filesContainer.appendChild(fileEl);

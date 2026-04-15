@@ -19,10 +19,11 @@ Ce module pilote la sortie audio I2S (DAC) du PMOD I2S2.
 
 ## Fonctions principales
 
-- Initialise I2S en transmission stereo.
-- Genere MCLK via un StateMachine PIO.
-- Construit une table sinus et joue un son avec `play_tone()`.
-- Libere les ressources avec `deinit()`.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `PmodI2S2TX(i2s_id=0, sample_rate=16000, bits=16, mclk_mult=256, pin_mclk=8, pin_sdout=9, pin_bclk=10, pin_lrclk=11, ibuf=20000)` | `i2s_id`: bus I2S, `sample_rate`: frequence d'echantillonnage, `bits`: resolution, `mclk_mult`: multiplicateur MCLK, `pin_*`: broches audio, `ibuf`: taille du buffer I2S | Initialise la sortie audio I2S et la generation d'horloge MCLK. |
+| `play_tone(freq_hz=440, seconds=2.0, amplitude=10000, frames=512)` | `freq_hz`: frequence de la note, `seconds`: duree, `amplitude`: volume, `frames`: taille du buffer audio | Construit et joue une tonalite sinusoidale stereo. |
+| `deinit()` | Aucun | Libere proprement les ressources I2S et PIO. |
 
 ## Remarques
 

@@ -18,10 +18,12 @@ Ce module pilote une LED RGB via BLE avec un service GATT personnalise.
 
 ## Fonctions principales
 
-- Controle PWM des canaux rouge, vert, bleu.
-- Expose une caracteristique BLE pour ecrire une couleur.
-- Formats acceptes: `OFF`, `#RRGGBB`, `R,G,B`.
-- Notification de retour `OK ...` ou `ERR ...`.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `RGBLed(pin_r, pin_g, pin_b, common_anode=False, pwm_freq=1000)` | `pin_r`, `pin_g`, `pin_b`: broches PWM, `common_anode`: type de LED, `pwm_freq`: frequence PWM | Initialise la LED RGB en PWM. |
+| `set_rgb(red, green, blue)` | `red`, `green`, `blue`: intensites de `0` a `255` | Applique une couleur RGB a la LED. |
+| `deinit()` | Aucun | Libere les sorties PWM de la LED RGB. |
+| `BLERGBController(ble, led, name="Pico2W-RGB")` | `ble`: instance Bluetooth, `led`: instance `RGBLed`, `name`: nom du peripherique BLE | Initialise le service BLE de controle RGB et demarre la publicite. |
 
 ## Remarques
 

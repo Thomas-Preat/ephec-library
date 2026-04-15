@@ -18,9 +18,12 @@ Ce module encapsule un capteur PIR (ex: HC-SR501) pour detecter une presence.
 
 ## Fonctions principales
 
-- `motion()`: retourne `True` si un mouvement est detecte.
-- `read()`: retourne l'etat brut `0` ou `1`.
-- `wait_for_motion(timeout_ms, poll_ms)`: attend un mouvement, avec timeout optionnel.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `PIRMotionSensor(pin=16, pull=None)` | `pin`: broche du capteur, `pull`: configuration de resistance interne | Initialise le capteur PIR en configurant une broche GPIO en entree. |
+| `motion()` | Aucun | Retourne `True` si un mouvement est detecte, sinon `False`. |
+| `read()` | Aucun | Retourne l'etat brut du capteur (`0` ou `1`). |
+| `wait_for_motion(timeout_ms=None, poll_ms=20)` | `timeout_ms`: delai maximal, `poll_ms`: intervalle entre deux lectures | Attend la detection d'un mouvement avec timeout optionnel. |
 
 ## Remarques
 

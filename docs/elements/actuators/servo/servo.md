@@ -18,11 +18,14 @@ Ce module pilote un servomoteur via PWM avec une API simple.
 
 ## Fonctions principales
 
-- `set_angle(angle)`: positionne le servo entre `-90` et `90` degres.
-- `get_angle()`: retourne l'angle courant.
-- `calibrate(min_pulse, max_pulse)`: ajuste les impulsions min/max.
-- `sweep(start, end, step, delay)`: effectue un balayage automatique.
-- `detach()`: desactive le PWM.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `ServoMotor(pin_number, min_pulse=600, max_pulse=2400, frequency=50)` | `pin_number`: broche PWM, `min_pulse`: impulsion minimale, `max_pulse`: impulsion maximale, `frequency`: frequence PWM | Initialise le servomoteur et la sortie PWM. |
+| `set_angle(angle)` | `angle`: position entre `-90` et `90` degres | Positionne le servo a l'angle demande. |
+| `get_angle()` | Aucun | Retourne l'angle courant du servo. |
+| `calibrate(min_pulse, max_pulse)` | `min_pulse`: nouvelle impulsion min, `max_pulse`: nouvelle impulsion max | Ajuste la calibration PWM pour le modele de servo utilise. |
+| `sweep(start=-90, end=90, step=5, delay=0.05)` | `start`: angle de depart, `end`: angle final, `step`: increment, `delay`: pause entre deux positions | Effectue un balayage automatique du servo. |
+| `detach()` | Aucun | Desactive la PWM et libere la ressource. |
 
 ## Remarques
 

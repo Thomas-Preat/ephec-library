@@ -22,9 +22,15 @@ Ce module pilote un PMOD OLED base sur SSD1306 en SPI.
 
 ## Fonctions principales
 
-- Initialise le controleur SSD1306 et le framebuffer.
-- Affiche du texte et des graphismes via les methodes FrameBuffer.
-- `show()`, `poweron()`, `poweroff()`, `contrast()`, `invert()`, `rotate_180()`.
+| Fonction | Parametres | Description |
+|---|---|---|
+| `PmodOLED(width=128, height=32, spi_id=0, baudrate=10000000, sck=2, mosi=3, cs=5, dc=6, rst=7, vbat=8, vdcc=9)` | `width`, `height`: resolution, `spi_id`: bus SPI, `baudrate`: vitesse SPI, `sck`, `mosi`, `cs`, `dc`, `rst`, `vbat`, `vdcc`: broches de controle | Initialise le controleur SSD1306 et le framebuffer SPI. |
+| `show()` | Aucun | Rafraichit l'ecran avec le contenu du buffer. |
+| `poweron()` | Aucun | Allume l'afficheur. |
+| `poweroff()` | Aucun | Eteint l'afficheur. |
+| `contrast(value)` | `value`: contraste de `0` a `255` | Regle le contraste de l'ecran. |
+| `invert(invert_on=True)` | `invert_on`: active ou non l'inversion | Inverse ou restaure l'affichage des pixels. |
+| `rotate_180(enabled=True)` | `enabled`: active ou non la rotation | Active ou desactive la rotation de l'ecran a `180` degres. |
 
 ## Remarques
 
