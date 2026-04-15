@@ -75,6 +75,12 @@
       "examplePath": null
     },
     {
+      "name": "dht11",
+      "path": "elements/sensors/dht11/dht11.py",
+      "descriptionPath": "elements/sensors/dht11/dht11.md",
+      "examplePath": "elements/sensors/dht11/dht11_example.py"
+    },
+    {
       "name": "gp2y0a21yk0f",
       "path": "elements/sensors/gp2y0a21yk0f/gp2y0a21yk0f.py",
       "descriptionPath": "elements/sensors/gp2y0a21yk0f/gp2y0a21yk0f.md",
