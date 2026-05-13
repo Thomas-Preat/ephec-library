@@ -1,23 +1,23 @@
 # ephec-library
 
-Bibliotheque de modules MicroPython pour le cours, avec documentation web generee automatiquement a partir de l'arborescence `docs/elements`.
+Bibliothèque de modules MicroPython pour le cours, avec documentation web générée automatiquement à partir de l'arborescence `docs/elements`.
 
 ## Objectif de ce README
 
-Ce guide permet a une autre personne (ex: un autre professeur) de:
+Ce guide permet à une autre personne (ex: un autre professeur) de:
 
-1. Comprendre comment le depot est organise.
-2. Ajouter un nouvel element (capteur, afficheur, actionneur, etc.).
-3. Mettre a jour l'index de documentation sans casser le site.
+1. Comprendre comment le dépôt est organisé.
+2. Ajouter un nouvel élément (capteur, afficheur, actionneur, etc.).
+3. Mettre à jour l'index de documentation sans casser le site.
 
 ## Structure du projet
 
-- `docs/elements/<categorie>/<element>/` contient les modules documentes.
-- `generate.py` scanne cette arborescence et regenere `docs/files.json`.
-- `docs/index.html`, `docs/script.js`, `docs/style.css` affichent la doc cote web.
-- `docs/template.md` est un modele de fiche markdown.
+- `docs/elements/<categorie>/<element>/` contient les modules documentés.
+- `generate.py` scanne cette arborescence et régénère `docs/files.json`.
+- `docs/index.html`, `docs/script.js`, `docs/style.css` affichent la doc côté web.
+- `docs/template.md` est un modèle de fiche markdown.
 
-Categories deja presentes:
+Catégories déjà présentes:
 
 - `actuators`
 - `audio`
@@ -25,16 +25,16 @@ Categories deja presentes:
 - `input`
 - `sensors`
 
-## Convention minimale pour un element
+## Convention minimale pour un élément
 
-Pour un element standard nomme `my_sensor` dans la categorie `sensors`:
+Pour un élément standard nommé `my_sensor` dans la catégorie `sensors`:
 
-1. Creer le dossier:
+1. Créer le dossier:
 	 - `docs/elements/sensors/my_sensor/`
 2. Ajouter les fichiers:
-	 - `my_sensor.py` (bibliotheque)
+	 - `my_sensor.py` (bibliothèque)
 	 - `my_sensor.md` (fiche de documentation)
-	 - `my_sensor_example.py` (optionnel mais recommande)
+	 - `my_sensor_example.py` (optionnel mais recommandé)
 
 Arborescence attendue:
 
@@ -48,21 +48,21 @@ docs/
 				my_sensor_example.py   # optionnel
 ```
 
-## Regles detectees par generate.py
+## Règles détectées par generate.py
 
-Le script `generate.py` applique les regles suivantes:
+Le script `generate.py` applique les règles suivantes:
 
 1. Le fichier `.py` principal est prioritairement `<nom_dossier>.py`.
 2. Si ce fichier n'existe pas, le premier `.py` non suffixe `_example.py` est pris.
 3. Le markdown principal est prioritairement `<nom_dossier>.md`.
 4. L'exemple est prioritairement `<nom_dossier>_example.py`.
-5. Les noms affiches dans le site remplacent `_` et `-` par des espaces.
+5. Les noms affichés dans le site remplacent `_` et `-` par des espaces.
 
-Conseil: respecter strictement le schema `<nom_dossier>.<ext>` pour eviter toute ambiguite.
+Conseil: respecter strictement le schéma `<nom_dossier>.<ext>` pour éviter toute ambiguïté.
 
-## Cas avance: groupe avec variantes
+## Cas avancé: groupe avec variantes
 
-Le generateur supporte aussi un niveau supplementaire de dossier (bundle):
+Le générateur supporte aussi un niveau supplémentaire de dossier (bundle):
 
 ```text
 docs/elements/<categorie>/<groupe>/<variante>/...
@@ -86,31 +86,31 @@ Dans ce cas:
 - la description du groupe est prise dans `temperature.md`, `index.md` ou `README.md` (dans cet ordre);
 - chaque variante doit contenir au minimum un `.py` principal.
 
-## Procedure d'ajout (pas a pas)
+## Procédure d'ajout (pas à pas)
 
-1. Choisir la categorie cible (`sensors`, `display`, etc.).
-2. Creer le dossier de l'element.
+1. Choisir la catégorie cible (`sensors`, `display`, etc.).
+2. Créer le dossier de l'élément.
 3. Ajouter le module `.py` principal.
-4. Rediger la fiche `.md` en s'aidant de `docs/template.md`.
+4. Rédiger la fiche `.md` en s'aidant de `docs/template.md`.
 5. Ajouter un `_example.py` si pertinent.
-6. Regenerer l'index JSON:
+6. Régénérer l'index JSON:
 
 ```bash
 python generate.py
 ```
 
-7. Verifier que `docs/files.json` contient bien la nouvelle entree.
+7. Vérifier que `docs/files.json` contient bien la nouvelle entrée.
 8. Committer au minimum:
-	 - le nouveau dossier d'element;
-	 - `docs/files.json` regenere.
+	 - le nouveau dossier d'élément;
+	 - `docs/files.json` régénéré.
 
 ## Checklist rapide avant commit
 
-- Le dossier est dans la bonne categorie.
+- Le dossier est dans la bonne catégorie.
 - Les noms de fichiers suivent le nom du dossier.
-- Le `.md` explique role, pinout, fonctions, remarques et references.
-- Le script `python generate.py` s'execute sans erreur.
-- Le nouvel element apparait dans `docs/files.json`.
+- Le `.md` explique rôle, pinout, fonctions, remarques et références.
+- Le script `python generate.py` s'exécute sans erreur.
+- Le nouvel élément apparaît dans `docs/files.json`.
 
 ## Exemple concret
 
@@ -129,14 +129,14 @@ Puis:
 python generate.py
 ```
 
-Le generateur ajoutera automatiquement une entree dans `docs/files.json` avec:
+Le générateur ajoutera automatiquement une entrée dans `docs/files.json` avec:
 
 - `path`: vers `pmod_tmp.py`
 - `descriptionPath`: vers `pmod_tmp.md`
-- `examplePath`: vers `pmod_tmp_example.py` (si present)
+- `examplePath`: vers `pmod_tmp_example.py` (si présent)
 
 ## Remarques de maintenance
 
-- `docs/files.json` est un fichier genere: ne pas l'editer manuellement.
-- En cas de renommage de dossier/fichier, relancer `python generate.py` immediatement.
-- Garder un style homogene entre fiches markdown pour faciliter l'usage pedagogique.
+- `docs/files.json` est un fichier généré: ne pas l'éditer manuellement.
+- En cas de renommage de dossier/fichier, relancer `python generate.py` immédiatement.
+- Garder un style homogène entre fiches markdown pour faciliter l'usage pédagogique.
